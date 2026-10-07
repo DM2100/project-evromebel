@@ -1,0 +1,677 @@
+/* =========================================
+   ROOT / GLOBAL
+========================================= */
+
+:root {
+    --primary: #1565c0;
+    --primary-dark: #0d47a1;
+    --primary-light: #42a5f5;
+
+    --dark: #0b1f3a;
+    --dark-soft: #12345a;
+
+    --light: #f4f8fc;
+    --white: #ffffff;
+
+    --text: #172033;
+    --text-muted: #6b7280;
+
+    --border: rgba(21, 101, 192, 0.12);
+
+    --transition: all 0.35s ease;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================
+   BOOTSTRAP BUTTON OVERRIDES
+========================================= */
+
+.btn {
+    border-radius: 4px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background-color: var(--dark);
+    border-color: var(--dark);
+}
+
+.btn-dark:hover {
+    background-color: #061426;
+    border-color: #061426;
+    transform: translateY(-2px);
+}
+
+.btn-outline-light:hover {
+    color: var(--dark);
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+#mainNavbar {
+    padding: 22px 0;
+
+    background: transparent;
+
+    transition:
+        padding 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+
+    z-index: 1000;
+}
+
+
+/* Logo */
+
+#mainNavbar .navbar-brand {
+    position: relative;
+    z-index: 1050;
+
+    color: var(--white);
+
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    transition: var(--transition);
+}
+
+#mainNavbar .navbar-brand span {
+    color: var(--primary-light);
+}
+
+#mainNavbar .navbar-brand:hover {
+    color: var(--white);
+}
+
+
+/* Desktop navigation */
+
+#mainNavbar .navbar-nav {
+    gap: 8px;
+}
+
+#mainNavbar .nav-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 14px !important;
+
+    color: rgba(255, 255, 255, 0.82) !important;
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+#mainNavbar .nav-link:hover,
+#mainNavbar .nav-link.active {
+    color: var(--white) !important;
+}
+
+
+/* Navigation underline */
+
+#mainNavbar .nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+    bottom: 3px;
+
+    height: 2px;
+
+    background: var(--primary-light);
+
+    border-radius: 10px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+#mainNavbar .nav-link:hover::after,
+#mainNavbar .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+
+/* CTA */
+
+#mainNavbar .nav-cta {
+    margin-left: 12px;
+}
+
+#mainNavbar .nav-cta .btn {
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#mainNavbar .nav-cta .btn:hover {
+    background: var(--primary-light);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(21, 101, 192, 0.3);
+}
+
+
+/* =========================================
+   SCROLLED NAVBAR
+========================================= */
+
+#mainNavbar.navbar-scrolled {
+    padding: 13px 0;
+
+    background: rgba(7, 28, 55, 0.97);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   CUSTOM MOBILE HAMBURGER
+========================================= */
+
+.custom-toggler {
+    position: relative;
+    z-index: 1050;
+
+    width: 46px;
+    height: 46px;
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 4px;
+
+    background: rgba(255, 255, 255, 0.06) !important;
+
+    transition: var(--transition);
+}
+
+.custom-toggler:hover {
+    border-color: var(--primary-light) !important;
+    background: rgba(66, 165, 245, 0.12) !important;
+}
+
+.custom-toggler:focus {
+    box-shadow: none !important;
+    outline: none;
+}
+
+.custom-toggler span {
+    display: block;
+
+    width: 21px;
+    height: 2px;
+
+    background: var(--white);
+
+    border-radius: 2px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* Hamburger → X */
+
+.custom-toggler[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.custom-toggler[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.custom-toggler[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================
+   MOBILE NAVBAR
+========================================= */
+
+@media (max-width: 991.98px) {
+
+    #mainNavbar {
+        padding: 16px 0;
+    }
+
+    #mainNavbar .navbar-collapse {
+        margin-top: 15px;
+        padding: 12px;
+
+        background: rgba(7, 28, 55, 0.98);
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    #mainNavbar .navbar-nav {
+        gap: 3px;
+    }
+
+    #mainNavbar .nav-link {
+        width: 100%;
+        min-height: 48px;
+
+        padding: 12px 15px !important;
+
+        border-radius: 7px;
+
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    #mainNavbar .nav-link:hover,
+    #mainNavbar .nav-link.active {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    #mainNavbar .nav-link::after {
+        display: none;
+    }
+
+    #mainNavbar .nav-cta {
+        margin: 10px 0 0;
+    }
+
+    #mainNavbar .nav-cta .btn {
+        width: 100%;
+        min-height: 48px;
+    }
+}
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.scroll-down {
+    position: absolute;
+
+    bottom: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--white);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    animation: scrollBounce 2s infinite;
+
+    transition: var(--transition);
+}
+
+.scroll-down:hover {
+    color: var(--primary-light);
+    border-color: var(--primary-light);
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 8px);
+    }
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    padding: 80px 0 25px;
+
+    background: #071c35;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-logo {
+    display: inline-block;
+
+    color: var(--white);
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.footer-logo span {
+    color: var(--primary-light);
+}
+
+.footer p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.footer h5 {
+    margin-bottom: 22px;
+
+    color: var(--white);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* Footer links */
+
+.footer-links {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 0.82rem;
+
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary-light);
+
+    padding-left: 5px;
+}
+
+
+/* Social links */
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: var(--white);
+
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    transform: translateY(-3px);
+}
+
+
+/* Footer contact */
+
+.footer-contact {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+
+    font-size: 0.8rem;
+}
+
+.footer-contact i {
+    color: var(--primary-light);
+
+    font-size: 1rem;
+}
+
+.footer-contact a {
+    color: rgba(255, 255, 255, 0.65);
+
+    transition: var(--transition);
+}
+
+.footer-contact a:hover {
+    color: var(--primary-light);
+}
+
+
+/* Footer bottom */
+
+.footer hr {
+    margin: 50px 0 25px;
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom {
+    color: rgba(255, 255, 255, 0.4);
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================
+   BACK TO TOP
+========================================= */
+
+.back-to-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    font-size: 1rem;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    cursor: pointer;
+
+    z-index: 999;
+
+    transition: var(--transition);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--primary-dark);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   RESPONSIVE FOOTER
+========================================= */
+
+@media (max-width: 767.98px) {
+
+    .footer {
+        padding: 60px 0 25px;
+    }
+
+    .footer hr {
+        margin: 35px 0 20px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL DEVICES
+========================================= */
+
+@media (max-width: 400px) {
+
+    #mainNavbar .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    #mainNavbar .navbar-brand {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .back-to-top {
+        right: 15px;
+        bottom: 15px;
+
+        width: 42px;
+        height: 42px;
+    }
+
+}

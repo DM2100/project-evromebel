@@ -1,0 +1,1080 @@
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+    --primary: #1565c0;
+    --primary-dark: #0d47a1;
+    --primary-light: #42a5f5;
+
+    --dark: #0b1f3a;
+
+    --light: #f4f8fc;
+    --white: #ffffff;
+
+    --text: #172033;
+    --text-muted: #6b7280;
+
+    --transition: all 0.35s ease;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    border-radius: 4px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+#mainNavbar {
+    padding: 20px 0;
+    background: var(--dark);
+
+    box-shadow: 0 5px 25px rgba(11, 31, 58, 0.18);
+
+    transition:
+        padding 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+
+    z-index: 1000;
+}
+
+
+/* ---------- BRAND ---------- */
+
+#mainNavbar .navbar-brand {
+    position: relative;
+    z-index: 1050;
+
+    color: var(--white);
+
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    transition: var(--transition);
+}
+
+#mainNavbar .navbar-brand span {
+    color: var(--primary-light);
+}
+
+#mainNavbar .navbar-brand:hover {
+    color: var(--white);
+}
+
+
+/* ---------- NAV LINKS ---------- */
+
+#mainNavbar .navbar-nav {
+    gap: 8px;
+}
+
+#mainNavbar .nav-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 14px !important;
+
+    color: rgba(255, 255, 255, 0.9) !important;
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+#mainNavbar .nav-link:hover,
+#mainNavbar .nav-link.active {
+    color: var(--white) !important;
+}
+
+
+/* ---------- NAV LINK UNDERLINE ---------- */
+
+#mainNavbar .nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+    bottom: 3px;
+
+    height: 2px;
+
+    background: var(--primary-light);
+
+    border-radius: 10px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+#mainNavbar .nav-link:hover::after,
+#mainNavbar .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+
+/* ---------- CTA ---------- */
+
+#mainNavbar .nav-cta {
+    margin-left: 12px;
+}
+
+#mainNavbar .nav-cta .btn {
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#mainNavbar .nav-cta .btn:hover {
+    background: var(--primary-dark);
+    color: var(--white);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(21, 101, 192, 0.25);
+}
+
+
+/* ---------- SCROLLED ---------- */
+
+#mainNavbar.navbar-scrolled {
+    padding: 13px 0;
+
+    background: var(--dark);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   HAMBURGER
+   ========================================================= */
+
+.custom-toggler {
+    position: relative;
+    z-index: 1050;
+
+    width: 46px;
+    height: 46px;
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 6px;
+
+    background: rgba(255, 255, 255, 0.06) !important;
+
+    transition: var(--transition);
+}
+
+.custom-toggler:hover {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.custom-toggler:focus {
+    box-shadow: none !important;
+    outline: none;
+}
+
+.custom-toggler span {
+    display: block;
+
+    width: 21px;
+    height: 2px;
+
+    background: var(--white);
+
+    border-radius: 2px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.custom-toggler[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.custom-toggler[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.custom-toggler[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+    padding: 160px 0 120px;
+    background: var(--light);
+}
+
+
+/* =========================================================
+   CONTACT HEADER
+   ========================================================= */
+
+.contact-header {
+    max-width: 700px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.contact-header h2 {
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+.contact-header h2 span {
+    color: var(--primary);
+}
+
+.contact-header p {
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    color: var(--text-muted);
+
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTACT INFO
+   ========================================================= */
+
+.contact-info {
+    width: 100%;
+
+    padding: 50px;
+
+    background: var(--dark);
+
+    border-radius: 12px;
+
+    color: var(--white);
+
+    box-shadow: 0 20px 50px rgba(11, 31, 58, 0.12);
+}
+
+
+/* =========================================================
+   CONTACT ITEMS
+   ========================================================= */
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-item:first-child {
+    padding-top: 0;
+}
+
+.contact-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+
+/* ---------- CONTACT ICON ---------- */
+
+.contact-item-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(66, 165, 245, 0.12);
+
+    border-radius: 8px;
+
+    color: var(--primary-light);
+
+    font-size: 1.15rem;
+}
+
+
+/* ---------- CONTACT TEXT ---------- */
+
+.contact-item-content h5 {
+    margin-bottom: 6px;
+
+    color: var(--white);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.contact-item-content p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.contact-item-content a {
+    color: rgba(255, 255, 255, 0.65);
+
+    transition: var(--transition);
+}
+
+.contact-item-content a:hover {
+    color: var(--primary-light);
+}
+
+
+/* =========================================================
+   LOCATION SECTION
+   ========================================================= */
+
+.location-section {
+    padding: 100px 0;
+
+    background: var(--white);
+}
+
+
+/* =========================================================
+   LOCATION CARD
+   ========================================================= */
+
+.location-card {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    overflow: hidden;
+
+    background: var(--white);
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 60px rgba(11, 31, 58, 0.1);
+}
+
+
+/* =========================================================
+   LOCATION INFO
+   ========================================================= */
+
+.location-info {
+    padding: 55px;
+}
+
+.location-info .section-label {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    color: var(--primary);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.location-info h2 {
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+.location-info h2 span {
+    color: var(--primary);
+}
+
+.location-description {
+    margin-bottom: 35px;
+
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   LOCATION DETAILS
+   ========================================================= */
+
+.location-detail {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.location-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(21, 101, 192, 0.1);
+
+    border-radius: 8px;
+
+    color: var(--primary);
+}
+
+.location-detail strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--dark);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.location-detail p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+.location-detail a {
+    color: var(--text-muted);
+
+    transition: var(--transition);
+}
+
+.location-detail a:hover {
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   GOOGLE MAPS BUTTON
+   ========================================================= */
+
+.location-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 8px;
+
+    padding: 12px 18px;
+
+    background: var(--primary);
+    color: var(--white);
+
+    border-radius: 7px;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.location-button:hover {
+    background: var(--primary-dark);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(21, 101, 192, 0.2);
+}
+
+
+/* =========================================================
+   GOOGLE MAP
+   ========================================================= */
+
+.location-map {
+    min-height: 520px;
+}
+
+.location-map iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+
+    border: 0;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+.back-to-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 1rem;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    cursor: pointer;
+
+    z-index: 999;
+
+    transition: var(--transition);
+}
+
+.back-to-top.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--primary-dark);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 80px 0 25px;
+
+    background: #071c35;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+/* ---------- FOOTER LOGO ---------- */
+
+.footer-logo {
+    display: inline-block;
+
+    color: var(--white);
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.footer-logo span {
+    color: var(--primary-light);
+}
+
+
+/* ---------- FOOTER TEXT ---------- */
+
+.footer p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+
+/* ---------- FOOTER TITLES ---------- */
+
+.footer h5 {
+    margin-bottom: 22px;
+
+    color: var(--white);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* ---------- FOOTER LINKS ---------- */
+
+.footer-links {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 0.82rem;
+
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary-light);
+
+    padding-left: 5px;
+}
+
+
+/* ---------- SOCIAL LINKS ---------- */
+
+.social-links {
+    display: flex;
+
+    gap: 10px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: var(--white);
+
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    transform: translateY(-3px);
+}
+
+
+/* ---------- FOOTER CONTACT ---------- */
+
+.footer-contact {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+
+    font-size: 0.8rem;
+}
+
+.footer-contact i {
+    flex-shrink: 0;
+
+    color: var(--primary-light);
+
+    font-size: 1rem;
+}
+
+.footer-contact a {
+    color: rgba(255, 255, 255, 0.65);
+
+    transition: var(--transition);
+}
+
+.footer-contact a:hover {
+    color: var(--primary-light);
+}
+
+
+/* ---------- FOOTER BOTTOM ---------- */
+
+.footer hr {
+    margin: 50px 0 25px;
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom {
+    color: rgba(255, 255, 255, 0.4);
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+    /* ---------- NAVBAR ---------- */
+
+    #mainNavbar {
+        padding: 16px 0;
+    }
+
+    #mainNavbar .navbar-collapse {
+        margin-top: 15px;
+
+        padding: 12px;
+
+        background: var(--dark);
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        border-radius: 12px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    #mainNavbar .navbar-nav {
+        gap: 3px;
+    }
+
+    #mainNavbar .nav-link {
+        width: 100%;
+        min-height: 48px;
+
+        padding: 12px 15px !important;
+
+        border-radius: 7px;
+    }
+
+    #mainNavbar .nav-link:hover,
+    #mainNavbar .nav-link.active {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    #mainNavbar .nav-link::after {
+        display: none;
+    }
+
+    #mainNavbar .nav-cta {
+        margin: 10px 0 0;
+    }
+
+    #mainNavbar .nav-cta .btn {
+        width: 100%;
+        min-height: 48px;
+    }
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-section {
+        padding: 140px 0 90px;
+    }
+
+    .contact-info {
+        padding: 40px;
+    }
+
+
+    /* ---------- LOCATION ---------- */
+
+    .location-section {
+        padding: 80px 0;
+    }
+
+    .location-card {
+        grid-template-columns: 1fr;
+    }
+
+    .location-info {
+        padding: 45px;
+    }
+
+    .location-map,
+    .location-map iframe {
+        min-height: 420px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    /* ---------- NAVBAR ---------- */
+
+    #mainNavbar .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    #mainNavbar .navbar-brand {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-section {
+        padding: 125px 18px 70px;
+    }
+
+    .contact-header {
+        margin-bottom: 40px;
+    }
+
+    .contact-header h2 {
+        font-size: 2rem;
+    }
+
+    .contact-header p {
+        font-size: 0.9rem;
+    }
+
+    .contact-info {
+        padding: 30px 24px;
+
+        border-radius: 10px;
+    }
+
+    .contact-item {
+        gap: 14px;
+    }
+
+    .contact-item-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 1rem;
+    }
+
+    .contact-item-content h5 {
+        font-size: 0.8rem;
+    }
+
+    .contact-item-content p {
+        font-size: 0.76rem;
+    }
+
+
+    /* ---------- LOCATION ---------- */
+
+    .location-section {
+        padding: 65px 18px;
+    }
+
+    .location-card {
+        border-radius: 14px;
+    }
+
+    .location-info {
+        padding: 35px 24px;
+    }
+
+    .location-info h2 {
+        font-size: 2rem;
+    }
+
+    .location-description {
+        margin-bottom: 28px;
+    }
+
+    .location-detail {
+        gap: 12px;
+    }
+
+    .location-button {
+        width: 100%;
+    }
+
+    .location-map,
+    .location-map iframe {
+        min-height: 350px;
+    }
+
+
+    /* ---------- BACK TO TOP ---------- */
+
+    .back-to-top {
+        right: 18px;
+        bottom: 18px;
+
+        width: 42px;
+        height: 42px;
+    }
+}
